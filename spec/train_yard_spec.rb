@@ -143,7 +143,7 @@ RSpec.describe TrainYard do
       expect(train_yard.total_inventory).to eq(expected)
     end
 
-    xit 'reports overflow if car is carried by multiple trains w > 10 cars' do
+    it 'reports overflow if car is carried by multiple trains w > 10 cars' do
       train_yard = TrainYard.new({location: 'Brighton'})
       car1 = Car.new({type: 'Mail', weight: 5})
       car2 = Car.new({type: 'Passengers', weight: 1})
