@@ -19,7 +19,7 @@ RSpec.describe '' do
   end
 
   describe 'methods' do
-    it 'counts cars given car object' do
+    it 'counts add cars and count them' do
       car1 = Car.new({type: 'Mail', weight: 5})
       car2 = Car.new({type: 'Passengers', weight: 1})
       train1 = Train.new({name: 'Thomas', type: 'Tank'})
@@ -35,6 +35,15 @@ RSpec.describe '' do
 
       train1.add_cars(car2, 10)
       expect(train1.cargo).to eq({car1 => 5, car2 => 10})
+    end
+
+    it 'measures weight of trains' do
+      car1 = Car.new({type: 'Mail', weight: 5})
+      car2 = Car.new({type: 'Passengers', weight: 1})
+      train1 = Train.new({name: 'Thomas', type: 'Tank'})
+      train1.add_cars(car1, 5)
+      train1.add_cars(car2, 2)
+      expect(train1.weight).to eq(27)
     end
   end
 end
