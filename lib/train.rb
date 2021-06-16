@@ -4,6 +4,14 @@ class Train
   def initialize(info)
     @name = info[:name]
     @type = info[:type]
-    @cargo = {}
+    @cargo = Hash.new(0)
+  end
+
+  def count_cars(car)
+    @cargo[car]
+  end
+
+  def add_cars(car, quantity)
+    cargo[car] += quantity
   end
 end
