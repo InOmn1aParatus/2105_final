@@ -41,15 +41,10 @@ class TrainYard
     end
     total
   end
-end
 
-# def total_inventory
-#     total = Hash.new { |total, item| total[item] = { quantity: 0, vendors: nil } }
-#     @vendors.each do |vendor|
-#       vendor.inventory.each do |item, quantity|
-#         total[item][:quantity] += quantity
-#         total[item][:vendors] = vendors_that_sell(item)
-#       end
-#     end
-#     total
-#   end
+  def overflow_cars
+    total_inventory.find_all do |key, value|
+      trains_containing(key).count > 1 && value > 10
+    end.flatten[0]
+  end
+end
