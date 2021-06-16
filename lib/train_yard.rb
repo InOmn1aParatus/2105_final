@@ -9,4 +9,10 @@ class TrainYard
   def add_train(train)
     @trains << train
   end
+
+  def types_of_trains
+    @trains.map do |train|
+      train.type
+    end.uniq.sort
+  end
 end
