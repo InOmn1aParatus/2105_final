@@ -15,4 +15,10 @@ class TrainYard
       train.type
     end.uniq.sort
   end
+
+  def trains_containing(car)
+    @trains.find_all do |train|
+      train.cargo.keys.include?(car)
+    end
+  end
 end
